@@ -4,13 +4,6 @@ gui_dark()
 
     
 class Interface():
-
-    #for row in records:
-        #print(row[0])
-        #print(row[1])
-        #print(row[2])
-        #print(row[3])
-        #print(row[4],"\n")
            
     def __init__(self, parent):
         self.gui(parent)
@@ -56,10 +49,7 @@ class Interface():
         on_event(self.button2, self.on_next)
         set_widget_layout(self.w1, "")
 
-
-    
-
-        
+       
     def on_next(self):      
 
         set_widget_value(self.label2,self.records[self.counter][0])
@@ -72,14 +62,15 @@ class Interface():
         # conn.close()
 
     def on_previous(self):
-        print('on_previous')
-        
-        
+        self.counter -= 1
+        set_widget_value(self.label2,self.records[self.counter][0])
+        set_widget_value(self.analog_edge1,self.records[self.counter][1])
+        set_widget_value(self.indicator1,self.records[self.counter][2])
+        set_widget_value(self.digitmeter1,self.records[self.counter][1])
 
-
+        
 if __name__ == '__main__':
     a = Interface(0)
     show(a.w1)
     gui_loop()
-    
     
